@@ -1,0 +1,17 @@
+# ~/.config/alacritty/notes.yml
+
+window:
+  # If you use tmux, you might want to adjust this to 0 or false.
+  dynamic_title: true
+
+# Default working directory
+working_directory: "/path/to/your/notes/folder"
+
+# Shell
+shell:
+  program: /bin/bash
+  args:
+    - --login
+    - -c
+    - "vim"  # This will open Vim by Default
+

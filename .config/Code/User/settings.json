@@ -1,0 +1,206 @@
+{
+  "go.useLanguageServer": true,
+  "workbench.statusBar.visible": true,
+  "breadcrumbs.enabled": false,
+  "window.menuBarVisibility": "toggle",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "j"],
+      "commands": [":tabprevious"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": [":tabnext"]
+    },
+    {
+      "before": ["<C-q>"],
+      "commands": [":q"]
+    },
+    {
+      "before": ["<C-x>"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["g", "I"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "D"],
+      "commands": ["editor.action.revealDeclaration"]
+    },
+    {
+      "before": ["<leader>", "D"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    {
+      "before": ["<leader>", "d", "s"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "w", "s"],
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": ["<leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "e", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "s", "b"],
+      "commands": ["workbench.action.showAllEditors"]
+    },
+    {
+      "before": ["<leader>", "s", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "s", "g"],
+      "commands": ["workbench.view.search.focus"]
+    },
+    {
+      "before": ["<leader>", "g", "g"],
+      "commands": ["lazygit.openLazygit"]
+    },
+    {
+      "before": ["<leader>", "c", "i"],
+      "commands": ["workbench.panel.chat"]
+    },
+    {
+      "before": ["<leader>", "c", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+        "before": ["<C-w>", "z"],
+        "commands": ["workbench.action.toggleMaximizeEditorGroup"]
+    },
+    {
+      "before": ["<C-w>", "L"],
+      "commands": ["workbench.action.moveEditorToNextGroup"]
+    },
+    {
+      "before": ["<C-w>", "H"],
+      "commands": ["workbench.action.moveEditorToPreviousGroup"]
+    },
+    {
+      "before": ["<leader>", "<leader>"],
+      "commands": ["vscode-harpoon.isQuickPick"]
+    },
+    {
+      "before": ["<leader>", "h", "a"],
+      "commands": ["vscode-harpoon.addEditor"]
+    },
+    {
+      "before": ["<leader>", "h", "h"],
+      "commands": ["vscode-harpoon.editEditors"]
+    },
+    {
+      "before": ["<leader>", "h", "1"],
+      "commands": ["vscode-harpoon.gotoEditor1"]
+    },
+    {
+      "before": ["<leader>", "h", "2"],
+      "commands": ["vscode-harpoon.gotoEditor1"]
+    },
+    {
+      "before": ["<leader>", "h", "3"],
+      "commands": ["vscode-harpoon.gotoEditor1"]
+    },
+    {
+      "before": ["<leader>", "h", "4"],
+      "commands": ["vscode-harpoon.gotoEditor1"]
+    },
+    {
+      "before": ["<leader>", "h", "5"],
+      "commands": ["vscode-harpoon.gotoEditor1"]
+    },
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-k>"],
+      "commands": ["editor.action.triggerParameterHints"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "c", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      "before": ["<leader>", "c", "f"],
+      "commands": ["editor.action.formatSelection"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-b>": false
+  },
+  "vim.leader": "<space>",
+  "window.zoomLevel": 0,
+  "editor.fontFamily": "'inconsolata nerd font mono', 'FuraCode Nerd Font', 'MesloLGS Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Siji'",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "C_Cpp.updateChannel": "Insiders",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "cmake.configureOnOpen": true,
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "editor.fontLigatures": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "javascript.suggest.autoImports": false,
+  "typescript.suggest.autoImports": false,
+  "editor.fontSize": 14,
+  "debug.console.fontSize": 12,
+  "markdown.preview.fontSize": 12,
+  "terminal.integrated.fontSize": 12,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "go.toolsManagement.autoUpdate": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "workbench.colorTheme": "Tokyo Night",
+  "editor.minimap.enabled": false,
+  "vim.smartRelativeLine": true,
+  "vim.foldfix": true,
+  "vim.neovimPath": "/opt/homebrew/bin/nvim",
+  "vim.neovimUseConfigFile": true,
+  "vim.neovimConfigPath": "/Users/s0h0oz1/.config/kickstarter/init.lua"
+}

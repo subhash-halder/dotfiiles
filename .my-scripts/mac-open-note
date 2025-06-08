@@ -1,0 +1,2 @@
+#!/bin/bash
+alacritty --config-file ~/.config/alacritty/alacritty-notes.yml

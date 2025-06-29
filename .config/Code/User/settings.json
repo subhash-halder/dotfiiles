@@ -4,8 +4,23 @@
   "breadcrumbs.enabled": false,
   "window.menuBarVisibility": "toggle",
   "editor.multiCursorModifier": "ctrlCmd",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.hg/store/**": true,
+    "**/node_modules/**": true,
+  },
   "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
   "vim.normalModeKeyBindingsNonRecursive": [
+    {
+        "before": ["<C-o>"],
+        "commands": ["workbench.action.navigateBack"]
+    },
+    {
+        "before": ["<C-i>"],
+        "commands": ["workbench.action.navigateForward"]
+    },
     {
       "before": ["<leader>", "j"],
       "commands": [":tabprevious"]
@@ -51,8 +66,16 @@
       "commands": ["editor.action.goToTypeDefinition"]
     },
     {
-      "before": ["<leader>", "d", "s"],
+      "before": ["<leader>", "c", "s"],
       "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "d", "c"],
+      "commands": ["workbench.action.debug.start"]
+    },
+    {
+      "before": ["<leader>", "d", "b"],
+      "commands": ["editor.debug.action.toggleBreakpoint"]
     },
     {
       "before": ["<leader>", "w", "s"],
@@ -68,7 +91,7 @@
     },
     {
       "before": ["<leader>", "e", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"]
+      "commands": ["workbench.view.explorer"]
     },
     {
       "before": ["<leader>", "s", "b"],
@@ -80,11 +103,16 @@
     },
     {
       "before": ["<leader>", "s", "g"],
-      "commands": ["workbench.view.search.focus"]
+      "commands": [
+        {
+          "command": "periscope.search",
+          "when": "editorTextFocus"
+        }
+      ]
     },
     {
       "before": ["<leader>", "g", "g"],
-      "commands": ["lazygit.openLazygit"]
+      "commands": ["lazygit-vscode.toggle"]
     },
     {
       "before": ["<leader>", "c", "i"],
@@ -95,7 +123,7 @@
       "commands": ["editor.action.formatDocument"]
     },
     {
-        "before": ["<C-w>", "z"],
+        "before": ["<C-b>", "z"],
         "commands": ["workbench.action.toggleMaximizeEditorGroup"]
     },
     {
@@ -108,7 +136,7 @@
     },
     {
       "before": ["<leader>", "<leader>"],
-      "commands": ["vscode-harpoon.isQuickPick"]
+      "commands": ["vscode-harpoon.editorQuickPick"]
     },
     {
       "before": ["<leader>", "h", "a"],
@@ -124,19 +152,23 @@
     },
     {
       "before": ["<leader>", "h", "2"],
-      "commands": ["vscode-harpoon.gotoEditor1"]
+      "commands": ["vscode-harpoon.gotoEditor2"]
     },
     {
       "before": ["<leader>", "h", "3"],
-      "commands": ["vscode-harpoon.gotoEditor1"]
+      "commands": ["vscode-harpoon.gotoEditor3"]
     },
     {
       "before": ["<leader>", "h", "4"],
-      "commands": ["vscode-harpoon.gotoEditor1"]
+      "commands": ["vscode-harpoon.gotoEditor4"]
     },
     {
       "before": ["<leader>", "h", "5"],
-      "commands": ["vscode-harpoon.gotoEditor1"]
+      "commands": ["vscode-harpoon.gotoEditor5"]
+    },
+    {
+      "before": ["<leader>", "c", "c"],
+      "commands": ["editor.action.commentLine"]
     },
   ],
   "vim.insertModeKeyBindings": [
@@ -146,6 +178,14 @@
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
+    {
+        "before": ["<C-o>"],
+        "commands": ["workbench.action.navigateBack"]
+    },
+    {
+        "before": ["<C-i>"],
+        "commands": ["workbench.action.navigateForward"]
+    },
     {
       "before": ["<leader>", "c", "c"],
       "commands": ["editor.action.commentLine"]
@@ -162,7 +202,7 @@
   },
   "vim.leader": "<space>",
   "window.zoomLevel": 0,
-  "editor.fontFamily": "'inconsolata nerd font mono', 'FuraCode Nerd Font', 'MesloLGS Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Siji'",
+  "editor.fontFamily": "'Inconsolata LGC Nerd Font Mono','MonaspiceNe Nerd Font','JetBrainsMono Nerd Font'",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -179,7 +219,6 @@
   "workbench.iconTheme": "material-icon-theme",
   "javascript.suggest.autoImports": false,
   "typescript.suggest.autoImports": false,
-  "editor.fontSize": 14,
   "debug.console.fontSize": 12,
   "markdown.preview.fontSize": 12,
   "terminal.integrated.fontSize": 12,
@@ -201,6 +240,14 @@
   "vim.smartRelativeLine": true,
   "vim.foldfix": true,
   "vim.neovimPath": "/opt/homebrew/bin/nvim",
-  "vim.neovimUseConfigFile": true,
-  "vim.neovimConfigPath": "/Users/s0h0oz1/.config/kickstarter/init.lua"
+  "vim.neovimUseConfigFile": false,
+  "vim.enableNeovim": true,
+  "vim.neovimConfigPath": "/Users/s0h0oz1/.config/kickstarter/init.lua",
+  "C_Cpp.default.compilerPath": "/opt/homebrew/opt/llvm/bin/clang++",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
 }

@@ -231,6 +231,11 @@
         "command": "acceptSelectedSuggestion",
         "when": "suggestWidgetVisible"
     },
+    {
+        "key": "ctrl+b z",
+        "command": "workbench.action.toggleMaximizeEditorGroup",
+        "when": "editorTextFocus"
+    },
 
     // terminals
 
@@ -249,14 +254,14 @@
         "command": "workbench.action.terminal.focusPrevious",
         "when": "terminalFocus"
     },
+    {
+        "key": "ctrl+b z",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "terminalFocus"
+    },
 
 
     // File explorer conroles for vim motion
-    {
-        "key": "r",
-        "command": "filesExplorer.rename",
-        "when": "filesExplorerFocus && foldersViewVisible && !inputFocus && !explorerResourceIsRoot && !explorerResourceReadonly"
-    },
     {
         "key": "c",
         "command": "filesExplorer.copy",
@@ -288,9 +293,19 @@
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus && !explorerResourceIsRoot && !explorerResourceReadonly"
     },
     {
-        "key": "s",
+        "key": "v",
         "command": "explorer.openToSide",
         "when": "filesExplorerFocus && foldersViewVisible && !inputFocus && !explorerResourceIsRoot && !explorerResourceReadonly"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus && foldersViewVisible && !inputFocus && !explorerResourceIsRoot && !explorerResourceIsFolder && !explorerResourceReadonly"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus && foldersViewVisible && !inputFocus && !explorerResourceIsRoot && explorerResourceIsFolder && !explorerResourceReadonly"
     },
     {
         "key": "enter",
@@ -301,6 +316,11 @@
         "key": "enter",
         "command": "list.toggleExpand",
         "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && explorerResourceIsFolder && !inputFocus"
+    },
+    {
+        "key": "/",
+        "command": "list.find",
+        "when": "filesExplorerFocus && !inputFocus"
     },
     {
         "key": "shift-s",
@@ -323,7 +343,7 @@
             "workbench.action.focusActiveEditorGroup"
         ]
         },
-        "when": "sideBarFocus && !inputFocus"
+        "when": "sideBarFocus && !inputFocus && filesExplorerFocus"
     },
     {
         "key": "ctrl+b w",
@@ -336,6 +356,28 @@
     // {
     //     "key": "ctrl+w",
     //     "command": "deleteWordLeft",
-    //     "when": "textInputFocus"
+    //     "when": "inputFocus"
     // }
+
+    // Debugging keybindings
+    {
+        "key": "space d c",
+        "command": "workbench.action.debug.continue",
+        "when": "debugState == 'stopped'"
+    },
+    {
+        "key": "space d s",
+        "command": "workbench.action.debug.stepOver",
+        "when": "debugState == 'stopped'"
+    },
+    {
+        "key": "space d i",
+        "command": "workbench.action.debug.stepInto",
+        "when": "debugState == 'stopped'"
+    },
+    {
+        "key": "space d o",
+        "command": "workbench.action.debug.stepOut",
+        "when": "debugState == 'stopped'"
+    }
 ]

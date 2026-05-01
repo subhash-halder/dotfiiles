@@ -2,7 +2,7 @@
 # zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-source ~/.config/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source ~/.config/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # disable omz auto update as it slow in certain network
 # zstyle ':omz:update' mode disabled
@@ -18,6 +18,9 @@ fi
 
 # configure starship
 eval "$(starship init zsh)"
+
+#  configure zoxide
+eval "$(zoxide init zsh)"
 
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -115,10 +118,19 @@ eval "$(starship init zsh)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Append to the history file, don’t overwrite it
+setopt APPEND_HISTORY
+# Share history between all sessions immediately
+setopt SHARE_HISTORY
+# Incrementally write each command to disk as soon as it’s run
+setopt INC_APPEND_HISTORY
+# Avoid duplicates
+setopt HIST_IGNORE_ALL_DUPS
+
 # History in cache directory:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTSIZE=100000
+SAVEHIST=100000
+HISTFILE=~/.zsh_history
 
 alias k="kubectl"
 alias kgp="kubectl get pods"
@@ -132,8 +144,9 @@ alias glo="git log --oneline"
 
 
 alias kvim="NVIM_APPNAME=kickstarter nvim"
+alias lvim="NVIM_APPNAME=lazyvim nvim"
 
-alias personal="tmuxifier load-session personal"
+alias personal="~/Documents/work/personal/dotfiiles/.my-scripts/personal-tmux.sh"
 
 if [ -f ~/.zsh_path ]; then
     . ~/.zsh_path
@@ -179,27 +192,24 @@ _fzf_comprun() {
   esac
 }
 export PATH="/Users/s0h0oz1/.rover/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/s0h0oz1/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-#sledge:binary path
-export SLEDGE_BIN=/Users/s0h0oz1/.sledge/bin
-export PATH="${PATH}:${SLEDGE_BIN}"
-source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/.config/zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# bindkey -v
+bindkey '^y' autosuggest-accept
+bindkey -v
 bindkey "^H" backward-delete-char
 bindkey "^?" backward-delete-char
 bindkey "^W" backward-kill-word
-bindkey '^N' menu-select
+# bindkey '^N' menu-select
 # bindkey '^J' history-incremental-search-backward
 # bindkey '^K' history-incremental-search-forward
-bindkey -M menuselect 'j' menu-complete
-bindkey -M menuselect "k" reverse-menu-complete
-bindkey -M menuselect '^I' menu-complete
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
-bindkey -M menuselect "^H" backward-delete-char
-bindkey -M vicmd "j" down-history
-bindkey -M vicmd "k" up-history
+# bindkey -M menuselect 'j' menu-complete
+# bindkey -M menuselect "k" reverse-menu-complete
+# bindkey -M menuselect '^I' menu-complete
+# bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+# bindkey -M menuselect "^H" backward-delete-char
+# bindkey -M vicmd "j" down-history
+# bindkey -M vicmd "k" up-history
 # zprof

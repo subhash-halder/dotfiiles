@@ -353,31 +353,15 @@
         "key": "ctrl+w",
         "command": "-workbench.action.switchWindow"
     },
-    // {
-    //     "key": "ctrl+w",
-    //     "command": "deleteWordLeft",
-    //     "when": "inputFocus"
-    // }
-
-    // Debugging keybindings
+    // Search list keyboard enter to go to the list
     {
-        "key": "space d c",
-        "command": "workbench.action.debug.continue",
-        "when": "debugState == 'stopped'"
+        "key": "enter",
+        "command": "search.action.focusSearchList",
+        "when": "searchViewletFocus && inputFocus && searchInputBoxFocus"
     },
     {
-        "key": "space d s",
-        "command": "workbench.action.debug.stepOver",
-        "when": "debugState == 'stopped'"
-    },
-    {
-        "key": "space d i",
-        "command": "workbench.action.debug.stepInto",
-        "when": "debugState == 'stopped'"
-    },
-    {
-        "key": "space d o",
-        "command": "workbench.action.debug.stepOut",
-        "when": "debugState == 'stopped'"
+        "key": "alt+cmd+s",
+        "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+        "when": "!isAuxiliaryWindowFocusedContext"
     }
 ]

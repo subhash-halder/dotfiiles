@@ -202,7 +202,7 @@
   },
   "vim.leader": "<space>",
   "window.zoomLevel": 0,
-  "editor.fontFamily": "'Inconsolata LGC Nerd Font Mono','MonaspiceNe Nerd Font','JetBrainsMono Nerd Font'",
+  "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Inconsolata LGC Nerd Font Mono','MonaspiceNe Nerd Font','JetBrainsMono Nerd Font'",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -250,4 +250,6 @@
     "markdown": false,
     "scminput": false
   },
+  "git.confirmSync": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
 }

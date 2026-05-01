@@ -34,6 +34,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="$HOME/.docker/bin:$PATH"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 if [ -d "/Users/subhash/.cargo/bin" ]; then 
   export PATH=$PATH:"/Users/subhash/.cargo/bin"
@@ -65,12 +67,18 @@ fi
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
 
-# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
+[[ -s "/Users/subhash/.gvm/scripts/gvm" ]] && source "/Users/subhash/.gvm/scripts/gvm"
+
 export EDITOR=nvim
+export MANPAGER='nvim +Man!'

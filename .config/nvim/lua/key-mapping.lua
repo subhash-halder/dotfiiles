@@ -38,7 +38,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Remap <Leader>w to Ctrl-w
-vim.keymap.set("n", "<leader>w", "<C-w>")
+-- vim.keymap.set("n", "<leader>w", "<C-w>")
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

@@ -31,6 +31,8 @@ vim.pack.add({
 	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
 	{ src = "https://github.com/nvim-neotest/nvim-nio" },
 	{ src = "https://github.com/thehamsta/nvim-dap-virtual-text" },
+	--- git ---
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 
 	-- dependencies
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -46,19 +48,13 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require("Comment").setup()
 require("fidget").setup()
 require("harpoon").setup()
-require("./plugins.nvim-tree")
+require("plugins.nvim-tree")
+require("plugins.nvim-treesitter")
 require("plugins.conform")
 require("plugins.mini")
 require("plugins.telescope")
 require("plugins.dap")
 require("plugins.toggleterm")
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "go", "ts", "js", "md" },
-	callback = function()
-		vim.treesitter.start()
-	end,
-})
 
 -- Load the colorscheme here.
 -- Like many other themes, this one has different styles, and you could load

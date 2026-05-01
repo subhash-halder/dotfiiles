@@ -44,3 +44,6 @@ dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
 --- golang ---
 require("config.dap.go")
+
+--- c c++ rust gdb ---
+require("config.dap.c-cpp-rust-lldb")

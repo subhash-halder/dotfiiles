@@ -1,0 +1,28 @@
+;; Linux entry point.
+;; Run: sudo kanata --cfg ~/.config/kanata/kanata-linux.kbd
+;; (or set up uinput permissions so sudo isn't required).
+;;
+;; If kanata can't auto-detect your keyboard, add a `linux-dev` line to the
+;; defcfg in kanata-common.kbd, e.g.:
+;;   linux-dev /dev/input/by-id/usb-...kbd
+;;
+;; Web-only apps (Gmail, Meet) open in the default browser via xdg-open.
+;; Swap binaries below to whatever your distro uses (e.g. google-chrome vs
+;; google-chrome-stable vs chromium).
+
+(include "kanata-common.kbd")
+
+(defalias
+  chrome    (cmd google-chrome-stable)
+  kitty     (cmd kitty --detach)
+  slack     (cmd slack)
+  cursor    (cmd cursor)
+  gmail     (cmd xdg-open https://mail.google.com)
+  meet      (cmd xdg-open https://meet.google.com)
+  clickup   (cmd xdg-open https://app.clickup.com)
+  postman   (cmd postman)
+  alacritty (cmd alacritty)
+
+  ;; hyper + s -> app launcher. Change to wofi/dmenu/ulauncher to taste.
+  spotlight (cmd rofi -show drun)
+)

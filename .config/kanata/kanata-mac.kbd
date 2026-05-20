@@ -1,0 +1,21 @@
+;; macOS entry point.
+;; Run: kanata --cfg ~/.config/kanata/kanata-mac.kbd
+;; Needs the Karabiner VirtualHIDDevice driver and Karabiner-Elements quit
+;; (or its profile emptied) so the two don't fight over the input stream.
+
+(include "kanata-common.kbd")
+
+(defalias
+  chrome    (cmd open -a "Google Chrome")
+  kitty     (cmd open -a "kitty")
+  slack     (cmd open -a "Slack")
+  cursor    (cmd open -a "Cursor")
+  gmail     (cmd open -a "Gmail")
+  meet      (cmd open -a "Google Meet")
+  clickup   (cmd open -a "ClickUp")
+  postman   (cmd open -a "Postman")
+  alacritty (cmd open -a "alacritty")
+
+  ;; hyper + s -> Spotlight (cmd+space)
+  spotlight M-spc
+)

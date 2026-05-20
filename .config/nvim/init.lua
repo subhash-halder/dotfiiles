@@ -17,6 +17,9 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/theprimeagen/harpoon" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
+	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+	--- treesitter ---
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 	--- lsp & snippet ---
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 	{ src = "https://github.com/rafamadriz/friendly-snippets" },
@@ -48,6 +51,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 require("Comment").setup()
 require("fidget").setup()
 require("harpoon").setup()
+require("render-markdown").setup()
 require("plugins.nvim-tree")
 require("plugins.nvim-treesitter")
 require("plugins.conform")
@@ -55,6 +59,7 @@ require("plugins.mini")
 require("plugins.telescope")
 require("plugins.dap")
 require("plugins.toggleterm")
+require("plugins.nvim-treesitter-context")
 
 -- Load the colorscheme here.
 -- Like many other themes, this one has different styles, and you could load

@@ -5,7 +5,7 @@ vim.keymap.set("n", "gC", OpenCommitForCurrentLine, { desc = "Open commit for cu
 vim.keymap.set("n", "gP", OpenPRForCurrentLine, { desc = "Open PR for current line commit" })
 
 -- Keymaps for file navigation
-vim.keymap.set("n", "<leader>eo", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>eo", ":lua require('oil').open_float('.')<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
 
 -- Formate buffer

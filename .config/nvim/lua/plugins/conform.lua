@@ -4,10 +4,10 @@ require("conform").setup({
 		-- Disable "format_on_save lsp_fallback" for languages that don't
 		-- have a well standardized coding style. You can add additional
 		-- languages here or re-enable it for the disabled ones.
-		local disable_filetypes = { c = true, cpp = true, javascript = true, typescript = true, go = true }
+		local disable_filetypes = { yaml = true }
 		local lsp_format_opt
 		if disable_filetypes[vim.bo[bufnr].filetype] then
-			lsp_format_opt = "never"
+			return
 		else
 			lsp_format_opt = "fallback"
 		end

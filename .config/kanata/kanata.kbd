@@ -1,0 +1,146 @@
+;; ---------------------------------------------------------------------------
+;; Kanata config — mirrors .config/karabiner/karabiner.json
+;;
+;; Run with:
+;;   sudo kanata --cfg ~/.config/kanata/kanata.kbd
+;; macOS shell-command launchers require:
+;;   - `danger-enable-cmd yes` below
+;;   - kanata started with `--danger-enable-cmd-bool`
+;;
+;; Notes vs. the Karabiner setup:
+;;   * Karabiner's `frontmost_application_unless` (skip remap in terminals /
+;;     VSCode / Cursor) has no direct Kanata equivalent. The ctrl+hjkl / np /
+;;     du / w chords below apply globally. Disable them inside the terminal
+;;     or editor itself if you need the literal ctrl+<key> there.
+;;   * Cmd+Space → Hyper is implemented as a defchordsv2 entry. Holding
+;;     cmd+space briefly enters the hyper layer; tapping cmd+space still
+;;     fires Spotlight (the chord releases pass through on tap).
+;; ---------------------------------------------------------------------------
+
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd     yes
+  concurrent-tap-hold   yes
+)
+
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defvar
+  tap-time  200
+  hold-time 200
+)
+
+(defalias
+  ;; Tab: tap = tab, hold = enter hyper layer
+  tab-hyper (tap-hold $tap-time $hold-time tab (layer-while-held hyper))
+
+  ;; Caps <-> Left Control swap (matches karabiner simple_modifications)
+  caps→ctl lctl
+  ctl→caps caps
+
+  ;; Inside the hyper layer, holding `w` enters the w sublayer.
+  w-sub (layer-while-held hyper-w)
+
+  ;; App launchers — `open -a` invokes macOS app bundles.
+  chrome    (cmd open -a "Google Chrome")
+  kitty     (cmd open -a "kitty")
+  slack     (cmd open -a "Slack")
+  cursor    (cmd open -a "Cursor")
+  gmail     (cmd open -a "Gmail")
+  meet      (cmd open -a "Google Meet")
+  clickup   (cmd open -a "ClickUp")
+  postman   (cmd open -a "Postman")
+  alacritty (cmd open -a "alacritty")
+
+  ;; Spotlight = Cmd+Space (used by hyper+s)
+  spotlight M-spc
+)
+
+;; ---------------------------------------------------------------------------
+;; Chords (defchordsv2)
+;;
+;; - Cmd+Space briefly held -> enter hyper layer (alternate entry alongside Tab)
+;; - Ctrl + h/j/k/l        -> arrow keys
+;; - Ctrl + n/p            -> down / up
+;; - Ctrl + d/u            -> page down / page up
+;; - Ctrl + w              -> opt+backspace (delete word back)
+;; - Ctrl + [              -> escape
+;;
+;; Chord keys use the *defsrc* names. Because we swap caps<->lctl above, the
+;; physical Caps Lock (which the OS now sees as Ctrl) is matched as `caps`
+;; here; the original physical LCtrl is matched as `lctl`. We bind both so
+;; either physical key works.
+;; ---------------------------------------------------------------------------
+
+(defchordsv2
+  (lmet spc) (layer-while-held hyper) 80 first-release ()
+
+  (caps h)   left   60 first-release ()
+  (caps j)   down   60 first-release ()
+  (caps k)   up     60 first-release ()
+  (caps l)   right  60 first-release ()
+  (caps n)   down   60 first-release ()
+  (caps p)   up     60 first-release ()
+  (caps d)   pgdn   60 first-release ()
+  (caps u)   pgup   60 first-release ()
+  (caps w)   A-bspc 60 first-release ()
+  (caps [)   esc    60 first-release ()
+
+  (lctl h)   left   60 first-release ()
+  (lctl j)   down   60 first-release ()
+  (lctl k)   up     60 first-release ()
+  (lctl l)   right  60 first-release ()
+  (lctl n)   down   60 first-release ()
+  (lctl p)   up     60 first-release ()
+  (lctl d)   pgdn   60 first-release ()
+  (lctl u)   pgup   60 first-release ()
+  (lctl w)   A-bspc 60 first-release ()
+  (lctl [)   esc    60 first-release ()
+)
+
+;; ---------------------------------------------------------------------------
+;; Layers
+;; ---------------------------------------------------------------------------
+
+(deflayer base
+  esc        1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  @tab-hyper q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @caps→ctl  a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft       z    x    c    v    b    n    m    ,    .    /    rsft
+  @ctl→caps  lmet lalt                spc           ralt rmet rctl
+)
+
+;; Hyper layer (held via Tab or Cmd+Space):
+;;   w (hold)    -> hyper-w sublayer
+;;   s           -> Spotlight (cmd+space)
+;;   h           -> Slack
+;;   j           -> kitty
+;;   k           -> Chrome
+;;   l           -> Cursor
+;;   n           -> alacritty
+;;   m           -> Gmail
+;;   ,           -> Google Meet
+;;   .           -> ClickUp
+;;   p           -> Postman
+(deflayer hyper
+  _          _    _    _    _    _    _    _    _    _    _    _    _    _
+  _          _    @w-sub _  _    _    _    _    _    _    @postman _ _ _
+  _          _    @spotlight _ _ _   @slack @kitty @chrome @cursor _ _ _
+  _          _    _    _    _    _    @alacritty @gmail @meet @clickup _ _
+  _          _    _                   _              _    _    _
+)
+
+;; Hyper + w sublayer: only j -> Chrome (per karabiner rule)
+(deflayer hyper-w
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    @chrome _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _                   _              _    _    _
+)

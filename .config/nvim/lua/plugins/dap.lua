@@ -47,3 +47,6 @@ require("config.dap.go")
 
 --- c c++ rust gdb ---
 require("config.dap.c-cpp-rust-lldb")
+
+--- js ---
+require("config.dap.js")

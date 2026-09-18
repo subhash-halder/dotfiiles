@@ -73,7 +73,7 @@ vim.cmd.hi("Comment gui=none")
 --- lsp setup ---
 -----------------
 
-vim.lsp.enable({ "lua_ls", "gopls", "ts_ls", "clangd" })
+vim.lsp.enable({ "lua_ls", "gopls", "ts_ls", "clangd", "rust_analyzer", "templ", "tailwindcss" })
 -- require("lsp.init")
 require("plugins.blink")
 

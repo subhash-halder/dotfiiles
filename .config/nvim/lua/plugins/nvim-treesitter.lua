@@ -14,6 +14,7 @@ local treesitter_fts = {
 	"rust",
 	"javascript",
 	"typescript",
+	"templ",
 }
 
 require("nvim-treesitter").install(treesitter_fts)

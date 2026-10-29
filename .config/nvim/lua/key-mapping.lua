@@ -248,3 +248,7 @@ end, { desc = "[G]it [D]iff against last commit" })
 -- Toggles
 vim.keymap.set("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "[T]oggle git show [b]lame line" })
 vim.keymap.set("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
+
+
+-- flash.nvim
+vim.keymap.set({"n", "x", "o"}, "s", require('flash').jump, { desc = "Flash" })

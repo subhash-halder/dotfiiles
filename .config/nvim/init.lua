@@ -18,6 +18,7 @@ vim.pack.add({
 	{ src = "https://github.com/theprimeagen/harpoon" },
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+	{ src = "https://github.com/folke/flash.nvim" },
 	--- treesitter ---
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
 	--- lsp & snippet ---
@@ -73,7 +74,7 @@ vim.cmd.hi("Comment gui=none")
 --- lsp setup ---
 -----------------
 
-vim.lsp.enable({ "lua_ls", "gopls", "ts_ls", "clangd", "rust_analyzer", "templ", "tailwindcss" })
+vim.lsp.enable({ "lua_ls", "gopls", "ts_ls", "clangd", "rust_analyzer", "templ", "tailwindcss", "postgres_lsp", "rust_analyzer"})
 -- require("lsp.init")
 require("plugins.blink")
 

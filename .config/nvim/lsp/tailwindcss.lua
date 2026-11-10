@@ -68,6 +68,8 @@ return {
     -- js
     'javascript',
     'javascriptreact',
+    -- Rust (for Dioxus rsx! markup)
+    'rust',
     'reason',
     'rescript',
     'typescript',
@@ -110,7 +112,14 @@ return {
         eruby = 'erb',
         heex = 'phoenix-heex',
         htmlangular = 'html',
+        rust = 'html',
         templ = 'html',
+      },
+      experimental = {
+        -- Dioxus uses `class: "..."` inside rsx! markup.
+        classRegex = {
+          [[class:\s*"([^"]*)"]],
+        },
       },
     },
   },

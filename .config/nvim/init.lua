@@ -27,6 +27,7 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.lib" },
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/j-hui/fidget.nvim" },
+	{ src = "https://github.com/github/copilot.vim" },
 	--- telescope ---
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "http://github.com/nvim-telescope/telescope.nvim" },
@@ -61,6 +62,7 @@ require("plugins.telescope")
 require("plugins.dap")
 require("plugins.toggleterm")
 require("plugins.nvim-treesitter-context")
+require("plugins.copilot")
 
 -- Load the colorscheme here.
 -- Like many other themes, this one has different styles, and you could load
